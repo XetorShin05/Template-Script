@@ -54,10 +54,8 @@ const playerCharacter = {
   }
 };
 
-
-
-
-
+// Process the text (this could involve modifying text using data like character's name, etc.)
+const modifiedText = `${text} - Modified using project: ${project.name} and character: ${playerCharacter.name}`;
 
   return { text }
 }
