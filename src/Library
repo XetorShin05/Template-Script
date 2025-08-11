@@ -1,0 +1,295 @@
+
+
+//----------------------------------------------------
+
+// ข้อมูลโปรเจ็กต์
+const project = {
+  name: "Insert Project Name Here", // ชื่อโปรเจ็กต์
+  description: "Insert project description here.", // คำบรรยายโปรเจ็กต์
+  tags: ["Insert tags here"], // รายการแท็กที่เกี่ยวข้อง
+  aliases: ["Insert any aliases here"], // ชื่ออื่นๆ หรือชื่อย่อของโปรเจ็กต์
+  triggers: ["Insert triggers here"], // การกระตุ้นต่างๆ เช่น 'character', 'setting'
+  generationSettings: {
+    defaultPlayer: "Insert player name here", // ตัวละครผู้เล่นเริ่มต้น
+    detectPlayerInputs: true, // ตรวจสอบการป้อนข้อมูลจากผู้เล่น
+    enforceFullName: true, // กำหนดให้ใช้ชื่อเต็ม
+    preserveHonorifics: true, // เก็บสรรพนามหรือคำยกย่อง
+    includeAttributes: ["appearance", "backstory", "personality", "goals", "mannerisms"], // คุณลักษณะที่ควรรวม
+    preventHallucination: true, // ป้องกันการสรุปข้อมูลที่ไม่ตรงกับที่ให้
+    maxSummaryLength: 600, // ความยาวสูงสุดของบทสรุป
+    languageFallback: "en" // กำหนดภาษาหากไม่มีการแปล
+  }
+};
+
+//----------------------------------------------------
+
+// ข้อมูลลอร์
+const lore = {
+  origin: "Insert the origin lore here.", // ที่มาของโลก: อธิบายที่มาของโลกที่โปรเจ็กต์ตั้งอยู่
+  history: "Insert the historical background here.", // ประวัติศาสตร์: อธิบายการเกิดเหตุการณ์หรือการเปลี่ยนแปลงในอดีตของโลก
+  culture: "Insert cultural lore here.", // วัฒนธรรม: อธิบายวัฒนธรรมหลักของโลก
+  religion: "Insert religious lore here." // ศาสนา: อธิบายถึงศาสนาและความเชื่อทางศาสนาของโลกนี้
+};
+
+//----------------------------------------------------
+
+// ข้อมูลการตั้งค่าโลก
+const setting = {
+  world: "Insert the world setting here.", // การตั้งค่าของโลก: พรรณนาถึงสภาพแวดล้อมและลักษณะของโลก
+  cities: "Insert the cities and locations in your world here.", // เมืองและสถานที่: รายละเอียดของเมืองหรือสถานที่สำคัญในโลกนี้
+  landmarks: "Insert notable landmarks here." // สถานที่สำคัญ: อธิบายถึงสถานที่ที่มีความหมายหรือความสำคัญในโลก
+};
+
+//----------------------------------------------------
+
+// ข้อมูลคำแนะนำ AI
+const aiInstructions = {
+  behavior: "Insert AI behavior instructions here.", // การทำงานของ AI: คำแนะนำเกี่ยวกับการกระทำของ AI เช่น การตอบสนองต่อผู้เล่น
+  playerInteractions: "Insert how AI should interact with the player here." // วิธีการโต้ตอบกับผู้เล่น: วิธีที่ AI ควรโต้ตอบหรือกระตุ้นให้ผู้เล่นดำเนินการในเกม
+};
+
+//----------------------------------------------------
+
+// ข้อมูลโครงเรื่อง
+const plot = {
+  mainStory: "Insert main plot details here.", // เนื้อเรื่องหลัก: อธิบายเนื้อเรื่องหลักของโปรเจ็กต์
+  subPlots: "Insert subplots here.", // เนื้อเรื่องรอง: อธิบายถึงเนื้อเรื่องรองหรือเควสต์ย่อย
+  conflicts: "Insert key conflicts here." // ความขัดแย้งหลัก: ระบุความขัดแย้งหรือปัญหาที่เกิดขึ้นในเรื่อง
+};
+
+//----------------------------------------------------
+
+// ข้อมูลสถานที่
+const locations = {
+  home1: "Insert location details here.", // สถานที่ 1: รายละเอียดของสถานที่แรก
+  home2: "Insert location details here.", // สถานที่ 2: รายละเอียดของสถานที่ที่สอง
+  home13: "Insert location details here." // สถานที่ 3: รายละเอียดของสถานที่ที่สาม
+};
+
+//----------------------------------------------------
+
+// ข้อมูลความสัมพันธ์
+const relationships = {
+  characterACharacterB: "Insert relationship description here.", // ความสัมพันธ์ระหว่างตัวละคร A และ B
+  characterLocation: "Insert relationship between character and location here.", // ความสัมพันธ์ระหว่างตัวละครกับสถานที่
+  characterObject: "Insert relationship between character and object here." // ความสัมพันธ์ระหว่างตัวละครกับสิ่งของ
+};
+
+//----------------------------------------------------
+
+// ข้อมูลตัวละครผู้เล่น
+const playerCharacter = {
+  type: "character", // ประเภทของตัวละคร
+  keys: "playerCharacter,playerCharacterCharacter", // คำสำคัญ
+  player: true, // ตัวละครของผู้เล่น
+  entryStart: "Character.playerCharacter", // จุดเริ่มต้น
+  name: "Insert character's name here", // ชื่อตัวละคร
+  age: "Insert character's age here", // อายุ
+  gender: "Insert character's gender here", // เพศ
+  pronouns: "Insert character's pronouns here", // คำสรรพนาม
+  title: "Insert character's title here", // ตำแหน่ง
+  appearance: {
+    height: "Insert character's height here", // ส่วนสูง
+    hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+    eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+    build: "Insert body build here", // รูปร่าง
+    skin: "Insert skin tone here" // สีผิว
+  },
+  backstory: "Insert character's backstory here", // ประวัติ
+  personality: "Insert character's personality here", // บุคลิกภาพ
+  goals: ["Insert character's goals here"], // เป้าหมาย
+  relationships: {
+    partner: "Insert character's partner here", // คู่สมรส
+    family: "Insert family relationships here", // ครอบครัว
+    allies: "Insert allies here" // พันธมิตร
+  },
+  additionalCustomizations: {
+    weapon: "Insert weapon customization here", // อาวุธ
+    ability: "Insert special ability here", // ความสามารถพิเศษ
+    items: "Insert items the character starts with here" // ไอเทมเริ่มต้น
+  }
+};
+
+//--------------ฟังก์ชันสำหรับปรับแต่งข้อมูลตัวละคร-----------------
+
+function customizePlayerCharacter(playerCharacter) {
+  // ปรับแต่งข้อมูลผู้เล่นโดยการใช้ `${}` เพื่อแทรกค่าตัวแปร
+  const characterDescription = `
+    Name: ${playerCharacter.name}
+    Age: ${playerCharacter.age}
+    Gender: ${playerCharacter.gender}
+    Appearance:
+      Height: ${playerCharacter.appearance.height}
+      Hair: ${playerCharacter.appearance.hair.color} ${playerCharacter.appearance.hair.style}
+      Eyes: ${playerCharacter.appearance.eyes.color}, Expression: ${playerCharacter.appearance.eyes.expression}
+      Build: ${playerCharacter.appearance.build}
+      Skin: ${playerCharacter.appearance.skin}
+    Backstory: ${playerCharacter.backstory}
+    Personality: ${playerCharacter.personality}
+  `;
+  
+  // ส่งคืนคำอธิบายของตัวละครที่ปรับแต่ง
+  return characterDescription;
+}
+
+// ปรับแต่งข้อมูลตัวละครและแสดงผล
+console.log(customizePlayerCharacter(playerCharacter));
+
+//----------------------------------------------------
+
+// ข้อมูลตัวละครที่มีความสัมพันธ์กับตัวละครผู้เล่น (Affection Characters)
+const affectionCharacters = {
+  chaA: {
+    type: "character", // ประเภทของตัวละคร
+    keys: "chaA,chaACharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ผู้เล่นไม่สามารถปรับแต่งได้
+    entryStart: "Character: chaA", // จุดเริ่มต้น
+    name: "Insert character's name here", // ชื่อตัวละคร
+    age: "Insert character's age here", // อายุ
+    gender: "Insert character's gender here", // เพศ
+    pronouns: "Insert character's pronouns here", // คำสรรพนาม
+    title: "Insert character's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert character's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert character's backstory here", // ประวัติ
+    personality: "Insert character's personality here", // บุคลิกภาพ
+    goals: ["Insert character's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert character's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  },
+
+//----------------------------------------------------
+
+  chaB: {
+    type: "character", // ประเภทของตัวละคร
+    keys: "chaB,chaBCharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ผู้เล่นไม่สามารถปรับแต่งได้
+    entryStart: "Character: chaB", // จุดเริ่มต้น
+    name: "Insert character's name here", // ชื่อตัวละคร
+    age: "Insert character's age here", // อายุ
+    gender: "Insert character's gender here", // เพศ
+    pronouns: "Insert character's pronouns here", // คำสรรพนาม
+    title: "Insert character's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert character's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert character's backstory here", // ประวัติ
+    personality: "Insert character's personality here", // บุคลิกภาพ
+    goals: ["Insert character's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert character's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  }
+};
+
+//----------------------------------------------------
+
+// ข้อมูลตัวละคร NPC
+const npcCharacters = {
+  npcA: {
+    type: "npc", // ประเภทของตัวละคร
+    keys: "npcA,npcACharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ไม่ใช่ของผู้เล่น
+    entryStart: "Character: npcA", // จุดเริ่มต้น
+    name: "Insert NPC's name here", // ชื่อตัวละคร
+    age: "Insert NPC's age here", // อายุ
+    gender: "Insert NPC's gender here", // เพศ
+    pronouns: "Insert NPC's pronouns here", // คำสรรพนาม
+    title: "Insert NPC's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert NPC's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert NPC's backstory here", // ประวัติ
+    personality: "Insert NPC's personality here", // บุคลิกภาพ
+    goals: ["Insert NPC's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert NPC's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  },
+
+//----------------------------------------------------
+
+  npcB: {
+    type: "npc", // ประเภทของตัวละคร
+    keys: "npcB,npcBCharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ไม่ใช่ของผู้เล่น
+    entryStart: "Character: npcB", // จุดเริ่มต้น
+    name: "Insert NPC's name here", // ชื่อตัวละคร
+    age: "Insert NPC's age here", // อายุ
+    gender: "Insert NPC's gender here", // เพศ
+    pronouns: "Insert NPC's pronouns here", // คำสรรพนาม
+    title: "Insert NPC's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert NPC's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert NPC's backstory here", // ประวัติ
+    personality: "Insert NPC's personality here", // บุคลิกภาพ
+    goals: ["Insert NPC's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert NPC's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  }
+};
+
+//----------------------------------------------------
+
+// รวมข้อมูลทั้งหมดในตัวแปรเดียว
+const characters = {
+  playerCharacter,        // ตัวละครของผู้เล่น
+  affectionCharacters,    // ตัวละครที่มีความสัมพันธ์กับผู้เล่น
+  npcCharacters           // ตัวละคร NPC
+};
+
+//----------------------------------------------------
+
+// ฟังก์ชันสำหรับแสดงข้อมูลตัวละคร
+function displayCharacterInfo(characters) {
+  // แสดงข้อมูลของ playerCharacter
+  console.log("Player Character Info:");
+  console.log(customizePlayerCharacter(characters.playerCharacter));
+
+  // แสดงข้อมูลของ affectionCharacters
+  for (const key in characters.affectionCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.affectionCharacters[key]));
+  }
+
+  // แสดงข้อมูลของ npcCharacters
+  for (const key in characters.npcCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.npcCharacters[key]));
+  }
+}
+
+// เรียกใช้งานฟังก์ชัน
+displayCharacterInfo(characters);
+
+//----------------------------------------------------
+
+
