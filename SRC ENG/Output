@@ -1,0 +1,196 @@
+const modifier = (text) => {
+
+//----------------------------
+
+// Function to customize player character description
+function customizePlayerCharacter(playerCharacter) {
+  const characterDescription = `
+    Name: ${playerCharacter.name}
+    Age: ${playerCharacter.age}
+    Gender: ${playerCharacter.gender}
+    Appearance:
+      Height: ${playerCharacter.appearance.height}
+      Hair: ${playerCharacter.appearance.hair.color} ${playerCharacter.appearance.hair.style}
+      Eyes: ${playerCharacter.appearance.eyes.color}, Expression: ${playerCharacter.appearance.eyes.expression}
+      Build: ${playerCharacter.appearance.build}
+      Skin: ${playerCharacter.appearance.skin}
+    Backstory: ${playerCharacter.backstory}
+    Personality: ${playerCharacter.personality}
+  `;
+  return characterDescription;
+}
+
+// Function to display character information
+function displayCharacterInfo(characters) {
+  console.log("Player Character Info:");
+  console.log(customizePlayerCharacter(characters.playerCharacter));
+
+  // Display information for affection characters
+  for (const key in characters.affectionCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.affectionCharacters[key]));
+  }
+
+  // Display information for npc characters
+  for (const key in characters.npcCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.npcCharacters[key]));
+  }
+}
+
+// Combine all character data into one object
+const characters = {
+  playerCharacter: {
+    type: "character", // Player character type
+    keys: "playerCharacter,playerCharacterCharacter", // Keywords
+    player: true, // Player character
+    entryStart: "Character.playerCharacter", // Entry point
+    name: "Insert character's name here", // Character's name
+    age: "Insert character's age here", // Character's age
+    gender: "Insert character's gender here", // Character's gender
+    pronouns: "Insert character's pronouns here", // Character's pronouns
+    title: "Insert character's title here", // Character's title
+    appearance: {
+      height: "Insert character's height here", // Height
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+      build: "Insert body build here", // Build
+      skin: "Insert skin tone here" // Skin tone
+    },
+    backstory: "Insert character's backstory here", // Character's backstory
+    personality: "Insert character's personality here", // Character's personality
+    goals: ["Insert character's goals here"], // Character's goals
+    relationships: {
+      partner: "Insert character's partner here", // Partner
+      family: "Insert family relationships here", // Family
+      allies: "Insert allies here" // Allies
+    },
+    additionalCustomizations: {
+      weapon: "Insert weapon customization here", // Weapon
+      ability: "Insert special ability here", // Special ability
+      items: "Insert items the character starts with here" // Starting items
+    }
+  },
+
+  affectionCharacters: {
+    chaA: {
+      type: "character",
+      keys: "chaA,chaACharacter",
+      player: false,
+      entryStart: "Character: chaA",
+      name: "Insert character's name here",
+      age: "Insert character's age here",
+      gender: "Insert character's gender here",
+      pronouns: "Insert character's pronouns here",
+      title: "Insert character's title here",
+      appearance: {
+        height: "Insert character's height here",
+        hair: { color: "Insert hair color here", style: "Insert hair style here" },
+        eyes: { color: "Insert eye color here", expression: "Insert eye expression here" },
+        build: "Insert body build here",
+        skin: "Insert skin tone here"
+      },
+      backstory: "Insert character's backstory here",
+      personality: "Insert character's personality here",
+      goals: ["Insert character's goals here"],
+      relationships: {
+        partner: "Insert character's partner here",
+        family: "Insert family relationships here",
+        allies: "Insert allies here"
+      }
+    },
+
+    chaB: {
+      type: "character",
+      keys: "chaB,chaBCharacter",
+      player: false,
+      entryStart: "Character: chaB",
+      name: "Insert character's name here",
+      age: "Insert character's age here",
+      gender: "Insert character's gender here",
+      pronouns: "Insert character's pronouns here",
+      title: "Insert character's title here",
+      appearance: {
+        height: "Insert character's height here",
+        hair: { color: "Insert hair color here", style: "Insert hair style here" },
+        eyes: { color: "Insert eye color here", expression: "Insert eye expression here" },
+        build: "Insert body build here",
+        skin: "Insert skin tone here"
+      },
+      backstory: "Insert character's backstory here",
+      personality: "Insert character's personality here",
+      goals: ["Insert character's goals here"],
+      relationships: {
+        partner: "Insert character's partner here",
+        family: "Insert family relationships here",
+        allies: "Insert allies here"
+      }
+    }
+  },
+
+  npcCharacters: {
+    npcA: {
+      type: "npc",
+      keys: "npcA,npcACharacter",
+      player: false,
+      entryStart: "Character: npcA",
+      name: "Insert NPC's name here",
+      age: "Insert NPC's age here",
+      gender: "Insert NPC's gender here",
+      pronouns: "Insert NPC's pronouns here",
+      title: "Insert NPC's title here",
+      appearance: {
+        height: "Insert NPC's height here",
+        hair: { color: "Insert hair color here", style: "Insert hair style here" },
+        eyes: { color: "Insert eye color here", expression: "Insert eye expression here" },
+        build: "Insert body build here",
+        skin: "Insert skin tone here"
+      },
+      backstory: "Insert NPC's backstory here",
+      personality: "Insert NPC's personality here",
+      goals: ["Insert NPC's goals here"],
+      relationships: {
+        partner: "Insert NPC's partner here",
+        family: "Insert family relationships here",
+        allies: "Insert allies here"
+      }
+    },
+
+    npcB: {
+      type: "npc",
+      keys: "npcB,npcBCharacter",
+      player: false,
+      entryStart: "Character: npcB",
+      name: "Insert NPC's name here",
+      age: "Insert NPC's age here",
+      gender: "Insert NPC's gender here",
+      pronouns: "Insert NPC's pronouns here",
+      title: "Insert NPC's title here",
+      appearance: {
+        height: "Insert NPC's height here",
+        hair: { color: "Insert hair color here", style: "Insert hair style here" },
+        eyes: { color: "Insert eye color here", expression: "Insert eye expression here" },
+        build: "Insert body build here",
+        skin: "Insert skin tone here"
+      },
+      backstory: "Insert NPC's backstory here",
+      personality: "Insert NPC's personality here",
+      goals: ["Insert NPC's goals here"],
+      relationships: {
+        partner: "Insert NPC's partner here",
+        family: "Insert family relationships here",
+        allies: "Insert allies here"
+      }
+    }
+  }
+};
+
+// Call the function to display the character info
+displayCharacterInfo(characters);
+
+// Return the modified text (if you want to include any other logic with text)
+return { text }
+}
+
+// Don't modify this part
+modifier("This is the initial input text.");
