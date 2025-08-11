@@ -1,0 +1,63 @@
+const modifier = (text) => {
+
+//----------------------------
+
+// Project Information
+const project = {
+  name: "Insert Project Name Here",
+  description: "Insert project description here.",
+  tags: ["Insert tags here"],
+  aliases: ["Insert any aliases here"],
+  triggers: ["Insert triggers here"],
+  generationSettings: {
+    defaultPlayer: "Insert player name here",
+    detectPlayerInputs: true,
+    enforceFullName: true,
+    preserveHonorifics: true,
+    includeAttributes: ["appearance", "backstory", "personality", "goals", "mannerisms"],
+    preventHallucination: true,
+    maxSummaryLength: 600,
+    languageFallback: "en"
+  }
+};
+
+// Player Character Information
+const playerCharacter = {
+  type: "character",
+  name: "Insert character's name here",
+  age: "Insert character's age here",
+  gender: "Insert character's gender here",
+  pronouns: "Insert character's pronouns here",
+  title: "Insert character's title here",
+  appearance: {
+    height: "Insert character's height here",
+    hair: { color: "Insert hair color here", style: "Insert hair style here" },
+    eyes: { color: "Insert eye color here", expression: "Insert eye expression here" },
+    build: "Insert body build here",
+    skin: "Insert skin tone here"
+  },
+  backstory: "Insert character's backstory here",
+  personality: "Insert character's personality here",
+  goals: ["Insert character's goals here"],
+  relationships: {
+    partner: "Insert character's partner here",
+    family: "Insert family relationships here",
+    allies: "Insert allies here"
+  },
+  additionalCustomizations: {
+    weapon: "Insert weapon customization here",
+    ability: "Insert special ability here",
+    items: "Insert items the character starts with here"
+  }
+};
+
+// Process the text (this could involve modifying text using data like character's name, etc.)
+const modifiedText = `${text} - Modified using project: ${project.name} and character: ${playerCharacter.name}`;
+
+//----------------------------
+
+  return { text: modifiedText };
+}
+
+// Don't modify this part
+modifier("This is the initial input text.");
