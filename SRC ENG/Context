@@ -1,0 +1,63 @@
+const modifier = (text) => {
+
+//----------------------------
+
+// Lore Information
+const lore = {
+  origin: "Insert the origin lore here.",
+  history: "Insert the historical background here.",
+  culture: "Insert cultural lore here.",
+  religion: "Insert religious lore here."
+};
+
+// World Setting Information
+const setting = {
+  world: "Insert the world setting here.",
+  cities: "Insert the cities and locations in your world here.",
+  landmarks: "Insert notable landmarks here."
+};
+
+// AI Instructions
+const aiInstructions = {
+  behavior: "Insert AI behavior instructions here.",
+  playerInteractions: "Insert how AI should interact with the player here."
+};
+
+// Plot Information
+const plot = {
+  mainStory: "Insert main plot details here.",
+  subPlots: "Insert subplots here.",
+  conflicts: "Insert key conflicts here."
+};
+
+// Locations Information
+const locations = {
+  home1: "Insert location details here.",
+  home2: "Insert location details here.",
+  home13: "Insert location details here."
+};
+
+// Relationships Information
+const relationships = {
+  characterACharacterB: "Insert relationship description here.",
+  characterLocation: "Insert relationship between character and location here.",
+  characterObject: "Insert relationship between character and object here."
+};
+
+// Process the text by appending context data
+const modifiedText = `
+Original Text: ${text}
+- Lore Origin: ${lore.origin}
+- Main Story: ${plot.mainStory}
+- World Setting: ${setting.world}
+- Key Conflict: ${plot.conflicts}
+- AI Behavior: ${aiInstructions.behavior}
+`;
+
+//----------------------------
+
+  return { text: modifiedText };
+}
+
+// Don't modify this part
+modifier("This is the initial input text.");
