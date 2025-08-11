@@ -1,0 +1,200 @@
+
+//output
+
+const modifier = (text) => {
+
+//----------------------------
+
+// ฟังก์ชันสำหรับปรับแต่งข้อมูลตัวละคร
+function customizePlayerCharacter(playerCharacter) {
+  const characterDescription = `
+    Name: ${playerCharacter.name}
+    Age: ${playerCharacter.age}
+    Gender: ${playerCharacter.gender}
+    Appearance:
+      Height: ${playerCharacter.appearance.height}
+      Hair: ${playerCharacter.appearance.hair.color} ${playerCharacter.appearance.hair.style}
+      Eyes: ${playerCharacter.appearance.eyes.color}, Expression: ${playerCharacter.appearance.eyes.expression}
+      Build: ${playerCharacter.appearance.build}
+      Skin: ${playerCharacter.appearance.skin}
+    Backstory: ${playerCharacter.backstory}
+    Personality: ${playerCharacter.personality}
+  `;
+  return characterDescription;
+}
+
+// ฟังก์ชันสำหรับแสดงข้อมูลตัวละคร
+function displayCharacterInfo(characters) {
+  console.log("Player Character Info:");
+  console.log(customizePlayerCharacter(characters.playerCharacter));
+
+  for (const key in characters.affectionCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.affectionCharacters[key]));
+  }
+
+  for (const key in characters.npcCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.npcCharacters[key]));
+  }
+}
+
+// รวมข้อมูลตัวละคร
+// ข้อมูลตัวละครผู้เล่น
+const playerCharacter = {
+  type: "character", // ประเภทของตัวละคร
+  keys: "playerCharacter,playerCharacterCharacter", // คำสำคัญ
+  player: true, // ตัวละครของผู้เล่น
+  entryStart: "Character.playerCharacter", // จุดเริ่มต้น
+  name: "Insert character's name here", // ชื่อตัวละคร
+  age: "Insert character's age here", // อายุ
+  gender: "Insert character's gender here", // เพศ
+  pronouns: "Insert character's pronouns here", // คำสรรพนาม
+  title: "Insert character's title here", // ตำแหน่ง
+  appearance: {
+    height: "Insert character's height here", // ส่วนสูง
+    hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+    eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+    build: "Insert body build here", // รูปร่าง
+    skin: "Insert skin tone here" // สีผิว
+  },
+  backstory: "Insert character's backstory here", // ประวัติ
+  personality: "Insert character's personality here", // บุคลิกภาพ
+  goals: ["Insert character's goals here"], // เป้าหมาย
+  relationships: {
+    partner: "Insert character's partner here", // คู่สมรส
+    family: "Insert family relationships here", // ครอบครัว
+    allies: "Insert allies here" // พันธมิตร
+  },
+  additionalCustomizations: {
+    weapon: "Insert weapon customization here", // อาวุธ
+    ability: "Insert special ability here", // ความสามารถพิเศษ
+    items: "Insert items the character starts with here" // ไอเทมเริ่มต้น
+  }
+};
+
+// ข้อมูลตัวละครที่มีความสัมพันธ์กับตัวละครผู้เล่น (Affection Characters)
+const affectionCharacters = {
+  chaA: {
+    type: "character", // ประเภทของตัวละคร
+    keys: "chaA,chaACharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ผู้เล่นไม่สามารถปรับแต่งได้
+    entryStart: "Character: chaA", // จุดเริ่มต้น
+    name: "Insert character's name here", // ชื่อตัวละคร
+    age: "Insert character's age here", // อายุ
+    gender: "Insert character's gender here", // เพศ
+    pronouns: "Insert character's pronouns here", // คำสรรพนาม
+    title: "Insert character's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert character's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert character's backstory here", // ประวัติ
+    personality: "Insert character's personality here", // บุคลิกภาพ
+    goals: ["Insert character's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert character's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  },
+  
+  chaB: {
+    type: "character", // ประเภทของตัวละคร
+    keys: "chaB,chaBCharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ผู้เล่นไม่สามารถปรับแต่งได้
+    entryStart: "Character: chaB", // จุดเริ่มต้น
+    name: "Insert character's name here", // ชื่อตัวละคร
+    age: "Insert character's age here", // อายุ
+    gender: "Insert character's gender here", // เพศ
+    pronouns: "Insert character's pronouns here", // คำสรรพนาม
+    title: "Insert character's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert character's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert character's backstory here", // ประวัติ
+    personality: "Insert character's personality here", // บุคลิกภาพ
+    goals: ["Insert character's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert character's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  }
+};
+
+// ข้อมูลตัวละคร NPC
+const npcCharacters = {
+  npcA: {
+    type: "npc", // ประเภทของตัวละคร
+    keys: "npcA,npcACharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ไม่ใช่ของผู้เล่น
+    entryStart: "Character: npcA", // จุดเริ่มต้น
+    name: "Insert NPC's name here", // ชื่อตัวละคร
+    age: "Insert NPC's age here", // อายุ
+    gender: "Insert NPC's gender here", // เพศ
+    pronouns: "Insert NPC's pronouns here", // คำสรรพนาม
+    title: "Insert NPC's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert NPC's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert NPC's backstory here", // ประวัติ
+    personality: "Insert NPC's personality here", // บุคลิกภาพ
+    goals: ["Insert NPC's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert NPC's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  },
+
+  npcB: {
+    type: "npc", // ประเภทของตัวละคร
+    keys: "npcB,npcBCharacter", // คำสำคัญ
+    player: false, // ตัวละครที่ไม่ใช่ของผู้เล่น
+    entryStart: "Character: npcB", // จุดเริ่มต้น
+    name: "Insert NPC's name here", // ชื่อตัวละคร
+    age: "Insert NPC's age here", // อายุ
+    gender: "Insert NPC's gender here", // เพศ
+    pronouns: "Insert NPC's pronouns here", // คำสรรพนาม
+    title: "Insert NPC's title here", // ตำแหน่ง
+    appearance: {
+      height: "Insert NPC's height here", // ส่วนสูง
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // สีและทรงผม
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // สีและการแสดงออกของตา
+      build: "Insert body build here", // รูปร่าง
+      skin: "Insert skin tone here" // สีผิว
+    },
+    backstory: "Insert NPC's backstory here", // ประวัติ
+    personality: "Insert NPC's personality here", // บุคลิกภาพ
+    goals: ["Insert NPC's goals here"], // เป้าหมาย
+    relationships: {
+      partner: "Insert NPC's partner here", // คู่สมรส
+      family: "Insert family relationships here", // ครอบครัว
+      allies: "Insert allies here" // พันธมิตร
+    }
+  }
+};
+
+// เรียกใช้งานฟังก์ชัน
+displayCharacterInfo(characters);
+
+
+
+
+  return { text }
+}
+
+// Don't modify this part
+modifier(text)
