@@ -1,0 +1,59 @@
+
+//context
+
+const modifier = (text) => {
+
+//----------------------------
+
+// ข้อมูลลอร์
+const lore = {
+  origin: "Insert the origin lore here.",
+  history: "Insert the historical background here.",
+  culture: "Insert cultural lore here.",
+  religion: "Insert religious lore here."
+};
+
+// ข้อมูลการตั้งค่าโลก
+const setting = {
+  world: "Insert the world setting here.",
+  cities: "Insert the cities and locations in your world here.",
+  landmarks: "Insert notable landmarks here."
+};
+
+// ข้อมูลคำแนะนำ AI
+const aiInstructions = {
+  behavior: "Insert AI behavior instructions here.",
+  playerInteractions: "Insert how AI should interact with the player here."
+};
+
+// ข้อมูลโครงเรื่อง
+const plot = {
+  mainStory: "Insert main plot details here.",
+  subPlots: "Insert subplots here.",
+  conflicts: "Insert key conflicts here."
+};
+
+// ข้อมูลสถานที่
+const locations = {
+  home1: "Insert location details here.",
+  home2: "Insert location details here.",
+  home13: "Insert location details here."
+};
+
+// ข้อมูลความสัมพันธ์
+const relationships = {
+  characterACharacterB: "Insert relationship description here.",
+  characterLocation: "Insert relationship between character and location here.",
+  characterObject: "Insert relationship between character and object here."
+};
+
+
+
+
+
+
+  return { text }
+}
+
+// Don't modify this part
+modifier(text)
