@@ -1,0 +1,291 @@
+//----------------------------------------------------
+
+// Project Information
+const project = {
+  name: "Insert Project Name Here", // Project name
+  description: "Insert project description here.", // Project description
+  tags: ["Insert tags here"], // List of relevant tags
+  aliases: ["Insert any aliases here"], // Other names or abbreviations of the project
+  triggers: ["Insert triggers here"], // Triggers like 'character', 'setting'
+  generationSettings: {
+    defaultPlayer: "Insert player name here", // Default player character
+    detectPlayerInputs: true, // Check player inputs
+    enforceFullName: true, // Enforce full name
+    preserveHonorifics: true, // Retain honorifics or titles
+    includeAttributes: ["appearance", "backstory", "personality", "goals", "mannerisms"], // Attributes to include
+    preventHallucination: true, // Prevent incorrect data synthesis
+    maxSummaryLength: 600, // Maximum summary length
+    languageFallback: "en" // Fallback language if no translation
+  }
+};
+
+//----------------------------------------------------
+
+// Lore Information
+const lore = {
+  origin: "Insert the origin lore here.", // Origin of the world: Explain the world's origin
+  history: "Insert the historical background here.", // History: Explain the past events or changes
+  culture: "Insert cultural lore here.", // Culture: Describe the world's main culture
+  religion: "Insert religious lore here." // Religion: Describe the world's religion and beliefs
+};
+
+//----------------------------------------------------
+
+// World Setting Information
+const setting = {
+  world: "Insert the world setting here.", // World setting: Describe the world's environment and features
+  cities: "Insert the cities and locations in your world here.", // Cities and locations: Details of important places in the world
+  landmarks: "Insert notable landmarks here." // Landmarks: Describe significant places in the world
+};
+
+//----------------------------------------------------
+
+// AI Instructions
+const aiInstructions = {
+  behavior: "Insert AI behavior instructions here.", // AI behavior: Instructions for AI actions like how to respond to players
+  playerInteractions: "Insert how AI should interact with the player here." // How the AI should interact with the player: Instructions for how the AI should engage or prompt the player
+};
+
+//----------------------------------------------------
+
+// Plot Information
+const plot = {
+  mainStory: "Insert main plot details here.", // Main story: Describe the main plot of the project
+  subPlots: "Insert subplots here.", // Subplots: Describe subplots or side quests
+  conflicts: "Insert key conflicts here." // Key conflicts: List the main conflicts or issues in the story
+};
+
+//----------------------------------------------------
+
+// Locations Information
+const locations = {
+  home1: "Insert location details here.", // Location 1: Details of the first location
+  home2: "Insert location details here.", // Location 2: Details of the second location
+  home13: "Insert location details here." // Location 3: Details of the third location
+};
+
+//----------------------------------------------------
+
+// Relationships Information
+const relationships = {
+  characterACharacterB: "Insert relationship description here.", // Relationship between Character A and B
+  characterLocation: "Insert relationship between character and location here.", // Relationship between character and location
+  characterObject: "Insert relationship between character and object here." // Relationship between character and object
+};
+
+//----------------------------------------------------
+
+// Player Character Information
+const playerCharacter = {
+  type: "character", // Character type
+  keys: "playerCharacter,playerCharacterCharacter", // Keywords
+  player: true, // Player character
+  entryStart: "Character.playerCharacter", // Starting point
+  name: "Insert character's name here", // Character name
+  age: "Insert character's age here", // Age
+  gender: "Insert character's gender here", // Gender
+  pronouns: "Insert character's pronouns here", // Pronouns
+  title: "Insert character's title here", // Title
+  appearance: {
+    height: "Insert character's height here", // Height
+    hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+    eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+    build: "Insert body build here", // Body build
+    skin: "Insert skin tone here" // Skin tone
+  },
+  backstory: "Insert character's backstory here", // Backstory
+  personality: "Insert character's personality here", // Personality
+  goals: ["Insert character's goals here"], // Goals
+  relationships: {
+    partner: "Insert character's partner here", // Partner
+    family: "Insert family relationships here", // Family
+    allies: "Insert allies here" // Allies
+  },
+  additionalCustomizations: {
+    weapon: "Insert weapon customization here", // Weapon customization
+    ability: "Insert special ability here", // Special ability
+    items: "Insert items the character starts with here" // Starting items
+  }
+};
+
+//--------------Function to Customize Player Character-----------------
+
+function customizePlayerCharacter(playerCharacter) {
+  // Customize player information by using `${}` to insert variable values
+  const characterDescription = `
+    Name: ${playerCharacter.name}
+    Age: ${playerCharacter.age}
+    Gender: ${playerCharacter.gender}
+    Appearance:
+      Height: ${playerCharacter.appearance.height}
+      Hair: ${playerCharacter.appearance.hair.color} ${playerCharacter.appearance.hair.style}
+      Eyes: ${playerCharacter.appearance.eyes.color}, Expression: ${playerCharacter.appearance.eyes.expression}
+      Build: ${playerCharacter.appearance.build}
+      Skin: ${playerCharacter.appearance.skin}
+    Backstory: ${playerCharacter.backstory}
+    Personality: ${playerCharacter.personality}
+  `;
+  
+  // Return customized character description
+  return characterDescription;
+}
+
+// Customize player character and display the result
+console.log(customizePlayerCharacter(playerCharacter));
+
+//----------------------------------------------------
+
+// Affection Characters Information (Characters related to Player)
+const affectionCharacters = {
+  chaA: {
+    type: "character", // Character type
+    keys: "chaA,chaACharacter", // Keywords
+    player: false, // Non-player character
+    entryStart: "Character: chaA", // Starting point
+    name: "Insert character's name here", // Character name
+    age: "Insert character's age here", // Age
+    gender: "Insert character's gender here", // Gender
+    pronouns: "Insert character's pronouns here", // Pronouns
+    title: "Insert character's title here", // Title
+    appearance: {
+      height: "Insert character's height here", // Height
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+      build: "Insert body build here", // Body build
+      skin: "Insert skin tone here" // Skin tone
+    },
+    backstory: "Insert character's backstory here", // Backstory
+    personality: "Insert character's personality here", // Personality
+    goals: ["Insert character's goals here"], // Goals
+    relationships: {
+      partner: "Insert character's partner here", // Partner
+      family: "Insert family relationships here", // Family
+      allies: "Insert allies here" // Allies
+    }
+  },
+
+//----------------------------------------------------
+
+  chaB: {
+    type: "character", // Character type
+    keys: "chaB,chaBCharacter", // Keywords
+    player: false, // Non-player character
+    entryStart: "Character: chaB", // Starting point
+    name: "Insert character's name here", // Character name
+    age: "Insert character's age here", // Age
+    gender: "Insert character's gender here", // Gender
+    pronouns: "Insert character's pronouns here", // Pronouns
+    title: "Insert character's title here", // Title
+    appearance: {
+      height: "Insert character's height here", // Height
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+      build: "Insert body build here", // Body build
+      skin: "Insert skin tone here" // Skin tone
+    },
+    backstory: "Insert character's backstory here", // Backstory
+    personality: "Insert character's personality here", // Personality
+    goals: ["Insert character's goals here"], // Goals
+    relationships: {
+      partner: "Insert character's partner here", // Partner
+      family: "Insert family relationships here", // Family
+      allies: "Insert allies here" // Allies
+    }
+  }
+};
+
+//----------------------------------------------------
+
+// NPC Characters Information
+const npcCharacters = {
+  npcA: {
+    type: "npc", // NPC type
+    keys: "npcA,npcACharacter", // Keywords
+    player: false, // Non-player character
+    entryStart: "Character: npcA", // Starting point
+    name: "Insert NPC's name here", // NPC name
+    age: "Insert NPC's age here", // Age
+    gender: "Insert NPC's gender here", // Gender
+    pronouns: "Insert NPC's pronouns here", // Pronouns
+    title: "Insert NPC's title here", // Title
+    appearance: {
+      height: "Insert NPC's height here", // Height
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+      build: "Insert body build here", // Body build
+      skin: "Insert skin tone here" // Skin tone
+    },
+    backstory: "Insert NPC's backstory here", // Backstory
+    personality: "Insert NPC's personality here", // Personality
+    goals: ["Insert NPC's goals here"], // Goals
+    relationships: {
+      partner: "Insert NPC's partner here", // Partner
+      family: "Insert family relationships here", // Family
+      allies: "Insert allies here" // Allies
+    }
+  },
+
+//----------------------------------------------------
+
+  npcB: {
+    type: "npc", // NPC type
+    keys: "npcB,npcBCharacter", // Keywords
+    player: false, // Non-player character
+    entryStart: "Character: npcB", // Starting point
+    name: "Insert NPC's name here", // NPC name
+    age: "Insert NPC's age here", // Age
+    gender: "Insert NPC's gender here", // Gender
+    pronouns: "Insert NPC's pronouns here", // Pronouns
+    title: "Insert NPC's title here", // Title
+    appearance: {
+      height: "Insert NPC's height here", // Height
+      hair: { color: "Insert hair color here", style: "Insert hair style here" }, // Hair color and style
+      eyes: { color: "Insert eye color here", expression: "Insert eye expression here" }, // Eye color and expression
+      build: "Insert body build here", // Body build
+      skin: "Insert skin tone here" // Skin tone
+    },
+    backstory: "Insert NPC's backstory here", // Backstory
+    personality: "Insert NPC's personality here", // Personality
+    goals: ["Insert NPC's goals here"], // Goals
+    relationships: {
+      partner: "Insert NPC's partner here", // Partner
+      family: "Insert family relationships here", // Family
+      allies: "Insert allies here" // Allies
+    }
+  }
+};
+
+//----------------------------------------------------
+
+// Combine all character data into a single variable
+const characters = {
+  playerCharacter,        // Player character
+  affectionCharacters,    // Affection characters
+  npcCharacters           // NPC characters
+};
+
+//----------------------------------------------------
+
+// Function to display character info
+function displayCharacterInfo(characters) {
+  // Display player character info
+  console.log("Player Character Info:");
+  console.log(customizePlayerCharacter(characters.playerCharacter));
+
+  // Display affection characters info
+  for (const key in characters.affectionCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.affectionCharacters[key]));
+  }
+
+  // Display NPC characters info
+  for (const key in characters.npcCharacters) {
+    console.log(`${key} Info:`);
+    console.log(customizePlayerCharacter(characters.npcCharacters[key]));
+  }
+}
+
+// Call the function
+displayCharacterInfo(characters);
+
+//----------------------------------------------------
